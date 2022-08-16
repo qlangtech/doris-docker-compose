@@ -33,9 +33,7 @@ SHOW PROC '/backends';
 
 config backends
 ```sql
-ALTER SYSTEM ADD BACKEND "doris-docker-compose_doris-be_1:9050";
-ALTER SYSTEM ADD BACKEND "doris-docker-compose_doris-be_2:9050";
-ALTER SYSTEM ADD BACKEND "doris-docker-compose_doris-be_3:9050";
+ALTER SYSTEM ADD BACKEND "doris-docker-compose-doris-be-1:9050";
 ```
 
 check backends config again, backends Alive value should be ture
