@@ -33,9 +33,7 @@ SHOW PROC '/backends';
 
 config backends
 ```sql
-ALTER SYSTEM ADD BACKEND "doris-docker-compose_doris-be_1:9050";
-ALTER SYSTEM ADD BACKEND "doris-docker-compose_doris-be_2:9050";
-ALTER SYSTEM ADD BACKEND "doris-docker-compose_doris-be_3:9050";
+ALTER SYSTEM ADD BACKEND "doris-docker-compose-doris-be-1:9050";
 ```
 
 check backends config again, backends Alive value should be ture
@@ -44,6 +42,9 @@ SHOW PROC '/backends';
 ```
 
 test sql
+
+使用一个副本
+
 ```sql
 create database if not exists testdb;
 drop table if exists testdb.test_table;
@@ -53,7 +54,9 @@ create table if not exists testdb.test_table(
 )
 ENGINE=olap
 UNIQUE KEY(name)
-DISTRIBUTED BY HASH(name);
+DISTRIBUTED BY HASH(name)
+PROPERTIES("replication_num" = "1")
+;
 
 insert into testdb.test_table values ("nick", 1), ("nick2", 3);
 select * from testdb.test_table;
