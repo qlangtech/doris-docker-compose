@@ -7,9 +7,9 @@ WORKDIR /opt/
 #  mv apache-doris-1.0.0-incubating-bin doris
 
 # for local debug
-COPY ../apache-doris-1.0.0-incubating-bin.tar.gz .
-RUN tar -zxvf apache-doris-1.0.0-incubating-bin.tar.gz &&\
-    mv apache-doris-1.0.0-incubating-bin doris
+COPY ./apache-doris-1.1.1-bin-x86.tar.gz .
+RUN tar -zxvf apache-doris-1.1.1-bin-x86.tar.gz &&\
+    mv apache-doris-1.1.1-bin-x86 doris
 
 RUN alternatives --set java java-1.8.0-openjdk.x86_64 &&\
     alternatives --set javac java-1.8.0-openjdk.x86_64 &&\

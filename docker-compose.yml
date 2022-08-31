@@ -2,10 +2,13 @@ version: "2"
 
 services:
   doris-fe:
+    hostname: fe
     build:
       context: ./
       dockerfile: ./fe/Dockerfile
-    image: doris-fe:latest
+    image: tis/doris-fe:latest
+    links:
+      - doris-be
     ports:
       - 9031:9030
       - 8031:8030
@@ -13,10 +16,14 @@ services:
       - doris-be
 
   doris-be:
+    hostname: be
     build:
       context: ./
       dockerfile: ./be/Dockerfile
-    image: doris-be:latest
-    deploy:
-      mode: replicated
-      replicas: 3
+    image: tis/doris-be:latest
+#    deploy:
+#      mode: replicated
+#      replicas: 3
+
+networks:
+  default:

@@ -1,4 +1,7 @@
 # Logs
+
+*.tar.gz
+
 logs
 *.log
 npm-debug.log*
