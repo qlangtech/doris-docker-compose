@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       dockerfile: ./fe/Dockerfile
-    image: tis/doris-fe:latest
+    image: registry.cn-hangzhou.aliyuncs.com/tis/doris-fe:1.1.3
     links:
       - doris-be
     #ports:
@@ -21,7 +21,7 @@ services:
     build:
       context: ./
       dockerfile: ./be/Dockerfile
-    image: tis/doris-be:latest
+    image: registry.cn-hangzhou.aliyuncs.com/tis/doris-be:1.1.3
     network_mode: host
 #    deploy:
 #      mode: replicated
