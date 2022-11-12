@@ -15,12 +15,15 @@ wget https://dist.apache.org/repos/dist/release/doris/1.0/1.0.0-incubating/apach
 
 ## compose up
 ```bash
-docker-compose up -d
+docker-compose -f docker-compose.yml  up -d
 ```
 
 ## config be
 connect doris use mysql client
-
+```shell
+mysql -h127.0.0.1 -uroot  -P9030
+```
+'''
 default user is  root
 password is empty
 
